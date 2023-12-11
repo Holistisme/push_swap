@@ -6,11 +6,14 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:37:02 by aheitz            #+#    #+#             */
-/*   Updated: 2023/12/08 22:40:28 by aheitz           ###   ########.fr       */
+/*   Updated: 2023/12/11 22:14:40 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "push_swap.h"
+void	print_stack(t_list *list);
+void	integer_throwing(t_list **head, int number);
 
 // For regular text
 #define BLK "\e[0;30m"
