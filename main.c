@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:35:39 by aheitz            #+#    #+#             */
-/*   Updated: 2023/12/11 22:34:03 by aheitz           ###   ########.fr       */
+/*   Updated: 2023/12/19 20:44:35 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main (void) {
 	int		choice = 42;
+	char	stack = '\0';
 	t_list	*stack_a = NULL;
 	t_list	*stack_b;
 	stack_b = NULL;
@@ -29,20 +30,29 @@ int main (void) {
 			break;
 		integer_throwing(&stack_a, choice);
 	}
-	printf(HBLK "\nAnd here is the result of the throw:\n\n" RESET);
+	printf(HBLU "\nThis is your stack 'a':\n\n" RESET);
 	print_stack(stack_a);
-	printf(HGRN "-\na\n" RESET);
+	printf(HRED "\nThis is your empty stack 'b':\n\n🗍\n" RESET);
+	print_stack(stack_b);
 	choice = 42;
 	while (choice) {
 		(printf("\n" GRNHB), display_banner("MAKE YOUR DEMOCRATIC CHOICE!"), printf(RESET));
-		printf(HBLU "\nList of executable actions :\n" RESET);
-		//printf(BLU "1 - 'Swap' instruction test\n" RESET);
+		printf(UWHT "\nList of executable actions :\n" RESET);
+		printf(BLU "\n1 - 'Swap' instruction test\n" RESET);
 		printf(RED "0 - Program exit\n" RESET);
 		printf("\nI wish to operate the action ");
 		scanf("%d", &choice);
 		switch (choice)
 		{
 			case 1:
+				printf("I want to test it on the stack ");
+				scanf(" %c", &stack);
+				if (stack == 'a')
+					swap_test(stack_a);
+				else if (stack == 'b')
+					swap_test(stack_b);
+				else
+					printf(HRED "\nINVALID STACK!\n" RESET);
 				break;
 			case 0:
 				printf(HGRN "\nEnd of program confirmed!\n\n" RESET);
@@ -86,4 +96,12 @@ void	integer_throwing(t_list **head, int number) {
 	while (current->next)
 		current = current->next;
 	current->next = new_element;
+}
+
+void	swap_test(t_list *stack) {
+	(printf("\n" BLUHB), display_banner("SWAP TEST LAUNCHED"), printf(RESET));
+	swap(&stack);
+	printf(HGRN "\nHere is the swap result:\n\n" RESET);
+	print_stack(stack);
+	(printf("\n" BLUHB), display_banner("END OF THE SWAP TEST"), printf(RESET));
 }
