@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:28:41 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/03 19:32:11 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/03 22:58:30 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 # include "ft_printf/ft_printf.h"
 # include <stdlib.h>
 
+//Linked list structure
 typedef struct s_list
 {
 	int				integer;
 	struct s_list	*next;
 }					t_list;
 
-char	*integer_check(char *argv);
-int		ft_atoi(const char *nptr);
+//Functions from error_checking.c
+void	duplicate_checking(t_list *stack);
+char	*integer_checking(char *argv);
+void	overflow_checking(char *argv);
+void	stop(void);
+ssize_t	value_checking(char user_digit, char max_digit);
+
+//Functions from stack_initilization.c
 t_list	**stack_initialization(int argc, char **argv);
 t_list	*add_node(char *argv);
-void	duplicate_checking(t_list *stack);
+int		ft_atoi(const char *nptr);
 
+//Functions from swap_instructions.c
 void	swap(t_list **stack);
 
 #endif

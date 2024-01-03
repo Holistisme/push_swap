@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:35:39 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/03 19:34:43 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/03 23:05:55 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = stack_initialization(argc, argv);
 	current = *stack_a;
-	while (current)
+	if (current && current->next)
 	{
-		ft_printf("%d\n", current->integer);
-		current = current->next;
+		if (current->integer > current->next->integer)
+			swap(stack_a);
 	}
-	swap(stack_a);
-	current = *stack_a;
-	ft_printf("\n\n\n");
 	while (current)
 	{
 		ft_printf("%d\n", current->integer);
