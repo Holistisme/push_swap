@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:10:04 by aheitz            #+#    #+#             */
-/*   Updated: 2023/12/19 20:28:03 by aheitz           ###   ########.fr       */
+/*   Created: 2023/11/14 15:58:24 by aheitz            #+#    #+#             */
+/*   Updated: 2023/11/15 10:04:48 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../ft_printf.h"
 
-void	swap(t_list **stack)
+size_t	ft_strlen(const char *string)
 {
-	t_list	*first;
-	t_list	*second;
-	t_list	*third;
+	size_t	len;
 
-	if (!stack || !*stack)
-		return ;
-	first = *stack;
-	if (!first->next)
-		return ;
-	second = first->next;
-	if (second->next)
-	{
-		third = second->next;
-		first->next = third;
-		third->prev = first;
-	}
-	else
-		first->next = NULL;
-	second->prev = NULL;
-	second->next = first;
-	first->prev = second;
-	*stack = second;
+	len = 0;
+	if (!string)
+		return (0);
+	while (string[len])
+		++len;
+	return (len);
 }
