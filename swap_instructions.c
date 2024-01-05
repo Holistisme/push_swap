@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:09:10 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 18:29:22 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/05 18:40:08 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	push(t_list **stack_src, t_list **stack_dst)
 	*stack_dst = src_head;
 }
 
-//Moves each integer to the next position
+//Moves each integer to the previous position
 void	rotate(t_list **stack)
 {
 	t_list	*first;
@@ -58,4 +58,25 @@ void	rotate(t_list **stack)
 		current = current->next;
 	current->next = first;
 	first->next = NULL;
+}
+
+//Moves each integer to the next position.
+void	reverse_rotate(t_list **stack)
+{
+	t_list	*first;
+	t_list	*current;
+	t_list	*last;
+
+	if (!stack)
+		return ;
+	first = *stack;
+	current = *stack;
+	while (current->next)
+	{
+		last = current;
+		current = current->next;
+	}
+	last->next = NULL;
+	*stack = current;
+	current->next = first;
 }
