@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:28:41 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 17:16:29 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/05 17:49:19 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int		ft_atoi(const char *nptr);
 
 //Functions from swap_instructions.c
 void	swap(t_list **stack);
-void	destroy_node(t_list	*node);
 void	push(t_list **stack_src, t_list **stack_dst);
+
+//Functions from main.c
 void	display(t_list **stack_a, t_list **stack_b);
 
 #endif
