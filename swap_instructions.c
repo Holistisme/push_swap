@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:09:10 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 17:52:27 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/05 18:29:22 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	swap(t_list **stack)
 	second->integer = tmp;
 }
 
-//Takes the first integer from the src and sends it on the top of the dst.
+//Takes the first integer from the src and sends it on the top of the dst
 void	push(t_list **stack_src, t_list **stack_dst)
 {
 	t_list	*src_head;
@@ -41,4 +41,21 @@ void	push(t_list **stack_src, t_list **stack_dst)
 	*stack_src = src_head->next;
 	src_head->next = *stack_dst;
 	*stack_dst = src_head;
+}
+
+//Moves each integer to the next position
+void	rotate(t_list **stack)
+{
+	t_list	*first;
+	t_list	*current;
+
+	if (!stack)
+		return ;
+	first = *stack;
+	*stack = first->next;
+	current = *stack;
+	while (current->next)
+		current = current->next;
+	current->next = first;
+	first->next = NULL;
 }
