@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:35:39 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 18:38:57 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/05 19:03:59 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(t_list *));
 	if (!stack_b)
 		return (0);
+	display(stack_a, stack_b);
+	sort(stack_a, stack_b);
+	display(stack_a, stack_b);
 	return (0);
 }
 

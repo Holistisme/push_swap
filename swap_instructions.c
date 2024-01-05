@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 19:09:10 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 18:40:08 by aheitz           ###   ########.fr       */
+/*   Created: 2024/01/05 19:43:28 by aheitz            #+#    #+#             */
+/*   Updated: 2024/01/05 19:53:19 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Inverts the first two integers of a linked list
-void	swap(t_list **stack)
+// swap main function.
+t_list	**swap(t_list **stack)
 {
 	int		tmp;
 	t_list	*first;
 	t_list	*second;
 
 	if (!stack)
-		return ;
+		return (NULL);
 	first = *stack;
 	if (!first->next)
 		return ;
@@ -28,55 +28,31 @@ void	swap(t_list **stack)
 	tmp = first->integer;
 	first->integer = second->integer;
 	second->integer = tmp;
+	return (stack);
 }
 
-//Takes the first integer from the src and sends it on the top of the dst
-void	push(t_list **stack_src, t_list **stack_dst)
+// Swap the first 2 elements at the top of stack a.
+// Do nothing if there is only one or no elements.
+t_list	**sa(t_list **stack_a)
 {
-	t_list	*src_head;
-
-	if (!stack_src || !stack_dst || !*stack_src)
-		return ;
-	src_head = *stack_src;
-	*stack_src = src_head->next;
-	src_head->next = *stack_dst;
-	*stack_dst = src_head;
+	if (!swap(stack_a))
+		return (NULL);
+	write(1, "sa", 2);
 }
 
-//Moves each integer to the previous position
-void	rotate(t_list **stack)
+// Swap the first 2 elements at the top of stack b.
+// Do nothing if there is only one or no elements.
+t_list	**sb(t_list **stack_b)
 {
-	t_list	*first;
-	t_list	*current;
-
-	if (!stack)
-		return ;
-	first = *stack;
-	*stack = first->next;
-	current = *stack;
-	while (current->next)
-		current = current->next;
-	current->next = first;
-	first->next = NULL;
+	if (!swap(stack_b))
+		return (NULL);
+	write(1, "sb", 2);
 }
 
-//Moves each integer to the next position.
-void	reverse_rotate(t_list **stack)
+// sa and sb at the same time.
+t_list	**ss(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*first;
-	t_list	*current;
-	t_list	*last;
-
-	if (!stack)
-		return ;
-	first = *stack;
-	current = *stack;
-	while (current->next)
-	{
-		last = current;
-		current = current->next;
-	}
-	last->next = NULL;
-	*stack = current;
-	current->next = first;
+	if (!swap(stack_a) || !swap(stack_b))
+		return (NULL);
+	write(1, "ss", 2);
 }

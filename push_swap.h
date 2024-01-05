@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 23:28:41 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 18:33:41 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/05 19:11:09 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ t_list	*add_node(char *argv);
 //Functions from swap_instructions.c
 void	push(t_list **stack_src, t_list **stack_dst);
 void	reverse_rotate(t_list **stack);
-void	rotate(t_list **stack);
+t_list	**rotate(t_list **stack);
 void	swap(t_list **stack);
 
 //Functions from main.c
 void	display(t_list **stack_a, t_list **stack_b);
+
+void	sort(t_list **stack_a, t_list **stack_b);
 
 #endif

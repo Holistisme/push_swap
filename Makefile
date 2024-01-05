@@ -6,7 +6,7 @@
 #    By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 15:51:28 by aheitz            #+#    #+#              #
-#    Updated: 2024/01/03 22:43:03 by aheitz           ###   ########.fr        #
+#    Updated: 2024/01/05 18:58:46 by aheitz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ EXEC = push_swap
 L_PRINTF = ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = stack_initialization.c swap_instructions.c error_checking.c
+SRCS = stack_initialization.c swap_instructions.c error_checking.c sort.c
 OBJS = ${SRCS:.c=.o}
 
 all: ft_printf ${NAME} ${EXEC}
