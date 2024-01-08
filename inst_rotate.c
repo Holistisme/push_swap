@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_instructions.c                              :+:      :+:    :+:   */
+/*   inst_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 22:50:54 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 23:15:04 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 14:22:57 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	rotate(t_list **stack)
 	last = (*stack)->next;
 	while (last->next)
 		last = last->next;
-    last->next = *stack;
-    *stack = (*stack)->next;
+	last->next = *stack;
+	*stack = (*stack)->next;
 	last->next->next = NULL;
 }
 

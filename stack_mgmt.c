@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_initialization.c                             :+:      :+:    :+:   */
+/*   stack_mgmt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:10:04 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/03 23:17:51 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:20:06 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	**stack_initialization(int argc, char **argv)
 		current->next = add_node(integer_checking(argv[index++]));
 		current = current->next;
 	}
-	duplicate_checking(*head);
+	clone_checking(head);
 	return (head);
 }
 
@@ -61,7 +61,25 @@ int	ft_atoi(const char *nptr)
 		sign = -1;
 		nptr++;
 	}
+	if (*nptr == '+')
+		nptr++;
 	while (*nptr)
 		integer = integer * 10 + (*nptr++ - 48);
 	return (integer * sign);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*current;
+
+	if (stack)
+	{
+		while (*stack)
+		{
+			current = *stack;
+			*stack = (*stack)->next;
+			free(current);
+		}
+		free(stack);
+	}
 }

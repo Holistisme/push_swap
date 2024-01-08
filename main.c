@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:35:39 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/05 23:00:55 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:05:11 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ int	main(int argc, char **argv)
 	stack_a = stack_initialization(argc, argv);
 	stack_b = malloc(sizeof(t_list *));
 	if (!stack_b)
-		return (0);
+		return (free_stack(stack_a), free_stack(stack_b), 0);
 	display(stack_a, stack_b);
-	ra(stack_a);
-	display(stack_a, stack_b);
-	//sort(stack_a, stack_b);
-	//display(stack_a, stack_b);
-	return (0);
+	return (free_stack(stack_a), free_stack(stack_b), 0);
 }
 
 //Displays stacks

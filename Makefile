@@ -6,17 +6,17 @@
 #    By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 15:51:28 by aheitz            #+#    #+#              #
-#    Updated: 2024/01/05 22:54:33 by aheitz           ###   ########.fr        #
+#    Updated: 2024/01/08 16:05:39 by aheitz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
 EXEC = push_swap
 L_PRINTF = ft_printf/libftprintf.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
-SRCS = stack_initialization.c swap_instructions.c error_checking.c sort.c \
-swap_instructions.c push_instructions.c rotate_instructions.c \
+SRCS = stack_mgmt.c error_checking.c \
+inst_swap.c inst_push.c inst_rotate.c inst_rev_rotate.c \
 
 OBJS = ${SRCS:.c=.o}
 
