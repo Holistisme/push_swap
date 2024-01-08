@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:10:04 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/08 16:20:06 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:10:52 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //Initializes a stack using program arguments
 t_list	**stack_initialization(int argc, char **argv)
 {
-	int		index;
+	size_t	index;
 	t_list	**head;
 	t_list	*current;
 
@@ -24,10 +24,17 @@ t_list	**stack_initialization(int argc, char **argv)
 		return (NULL);
 	index = 1;
 	*head = add_node(integer_checking(argv[index++]));
+	if (!*head)
+		return (free_stack(head), NULL);
 	current = *head;
 	while (index < argc)
 	{
 		current->next = add_node(integer_checking(argv[index++]));
+		if (!current->next)
+		{
+			free_stack(head);
+			return (NULL);
+		}
 		current = current->next;
 	}
 	clone_checking(head);
@@ -39,7 +46,6 @@ t_list	*add_node(char *argv)
 {
 	t_list	*node;
 
-	node = NULL;
 	node = malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);

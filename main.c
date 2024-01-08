@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 22:35:39 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/08 16:05:11 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:21:57 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,14 @@ void	display(t_list **stack_a, t_list **stack_b)
 		current_b = current_b->next;
 	}
 	ft_printf("\n");
+}
+void	check_arguments(int argc, char **argv)
+{
+	size_t	number;
+
+	number = 1;
+	while (number < argc)
+	{
+		
+	}
 }

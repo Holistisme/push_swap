@@ -6,7 +6,7 @@
 /*   By: aheitz <aheitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 22:38:12 by aheitz            #+#    #+#             */
-/*   Updated: 2024/01/08 16:29:36 by aheitz           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:15:56 by aheitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void	overflow_checking(char *argv)
 	index = 0;
 	while (argv[index])
 		++index;
-	if (index > 11)
+	if (index > 10)
 		stop();
-	if (index < 11)
+	if (index < 10)
 		return ;
 	while (*argv)
 	{
-		if (value_checking(*argv++, *overflow_limit++) == -1)
+		if (value_checking(*argv, *overflow_limit) == -1)
 			stop();
 		if (value_checking(*argv++, *overflow_limit++) == 1)
 			return ;
@@ -90,8 +90,9 @@ ssize_t	value_checking(char user_digit, char max_digit)
 }
 
 // Program stop due to error
-void	stop(void)
+void	stop(t_list	**stack)
 {
+	free_stack(stack);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
